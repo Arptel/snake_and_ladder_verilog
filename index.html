@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Snake and Ladder Game</title>
+    <title>Two-Player Snake and Ladder Game</title>
     <style>
-        /* Container to center the game board */
         body {
             display: flex;
             justify-content: center;
@@ -17,40 +16,49 @@
         }
 
         h1 {
-            font-size: 2vw; /* Scales title font with viewport width */
+            font-size: 2vw;
             margin-bottom: 20px;
             text-align: center;
         }
 
         #board {
             position: relative;
-            width: 90vw; /* Make board responsive, max width for larger screens */
-            max-width: 500px; /* Limit the board size on larger screens */
-            aspect-ratio: 1 / 1; /* Keeps board square */
-            background-image: url('snakes-and-ladders-game-board.jpg'); /* Add the path to your board image */
+            width: 90vw;
+            max-width: 500px;
+            aspect-ratio: 1 / 1;
+            background-image: url('snakes-and-ladders-game-board.jpg');
             background-size: cover;
         }
 
         .piece {
             position: absolute;
-            width: 5%; /* Responsive size for player piece */
+            width: 5%;
             height: 5%;
-            background-color: red; /* Color or image for the player's piece */
-            left: calc(0% - 25px); /* Adjusts for responsive positioning */
-            top: calc(95%); /* Positions approximately around 475px in responsive layout */
             border-radius: 50%;
             transform: translate(-50%, -50%);
-            transition: left 0.5s ease, top 0.5s ease; /* Smooth transition for movement */
+            transition: left 0.5s ease, top 0.5s ease;
+        }
+
+        #player1 {
+            background-color: red;
+        }
+
+        #player2 {
+            background-color: blue;
         }
 
         #rollDiceBtn {
             margin-top: 20px;
             padding: 10px 20px;
-            font-size: 1.2vw; /* Scales button size with viewport width */
+            font-size: 1.2vw;
             max-width: 150px;
         }
 
-        /* Ensure responsiveness for very small screens */
+        #result {
+            margin-top: 10px;
+            font-size: 1.2vw;
+        }
+
         @media (max-width: 600px) {
             h1 {
                 font-size: 4vw;
@@ -63,13 +71,13 @@
     </style>
 </head>
 <body>
-
-    <h1>Snake and Ladder Game</h1>
+    <h1>Two-Player Snake and Ladder Game</h1>
     <div id="board">
-        <div id="playerPiece" class="piece"></div>
+        <div id="player1" class="piece" style="left: -25px; top: 475px;"></div>
+        <div id="player2" class="piece" style="left: -30px; top: 475px;"></div>
     </div>
     <button id="rollDiceBtn">Roll Dice</button>
     <p id="result"></p>
-    <script src="script2.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
